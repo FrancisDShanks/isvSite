@@ -5,15 +5,19 @@
     <title>Post {{ post.id }}</title>
 </head>
 <body>
-    <h1>Post Id:{{ post.id }}</h1>
-    <h2>Title:{{ post.title }}</h2>
+    <a href={% url 'zendesk:index' %}>Back to main page</a>
+    <h1>#{{ post.id }}  {{ post.title }}</h1>
+    <h6>{{ post.topic_id }}</h6>
+    <h6>{{ post.author_id }}</h6>
     <h6>Updated At:{{ post.updated_at_str }}</h6>
-    <ul>Detail:{{ post.details }}</ul>
+    <ul>{{ post.details | safe}}</ul>
     {% for c in comments %}
         <hr />
-        <h6>Comment Id:{{ c.id }}</h6>
+        <h6>{{ c.author_id }}</h6>
         <h6>Updated At:{{ c.updated_at_str }}</h6>
-        <h6>{{ c.body }}</h6>
+
+        <div id="content">{{ c.body | safe}}</div>
+
     {% endfor %}
 </body>
 </html>

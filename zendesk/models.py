@@ -135,8 +135,6 @@ class IsvComments(models.Model):
     updated_at_str = models.CharField(max_length=1024, blank=True, null=True)
     vote_count = models.IntegerField(blank=True, null=True)
 
-    # postid = models.ForeignKey('IsvPosts', on_delete=models.CASCADE)
-
     class Meta:
         managed = False
         db_table = 'isv_comments'
@@ -184,7 +182,48 @@ class IsvPostsJson(models.Model):
         db_table = 'isv_posts_json'
 
 
-class ZendeskUserinfo(models.Model):
+class IsvTopics(models.Model):
+    id = models.CharField(primary_key=True, max_length=1024)
+    url = models.CharField(max_length=1024, blank=True, null=True)
+    html_url = models.CharField(max_length=1024, blank=True, null=True)
+    name = models.CharField(max_length=1024, blank=True, null=True)
+    description = models.CharField(max_length=1024, blank=True, null=True)
+    position = models.CharField(max_length=1024, blank=True, null=True)
+    follower_count = models.CharField(max_length=1024, blank=True, null=True)
+    community_id = models.CharField(max_length=1024, blank=True, null=True)
+    created_at = models.CharField(max_length=1024, blank=True, null=True)
+    updated_at = models.CharField(max_length=1024, blank=True, null=True)
+    user_segment_id = models.CharField(max_length=1024, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'isv_topics'
+
+
+class IsvUsers(models.Model):
+    id = models.CharField(primary_key=True, max_length=1024)
+    url = models.CharField(max_length=1024, blank=True, null=True)
+    name = models.CharField(max_length=1024, blank=True, null=True)
+    email = models.CharField(max_length=1024, blank=True, null=True)
+    created_at = models.CharField(max_length=1024, blank=True, null=True)
+    updated_at = models.CharField(max_length=1024, blank=True, null=True)
+    time_zone = models.CharField(max_length=1024, blank=True, null=True)
+    phone = models.CharField(max_length=1024, blank=True, null=True)
+    shared_phone_number = models.CharField(max_length=1024, blank=True, null=True)
+    photo = models.TextField(blank=True, null=True)
+    locale_id = models.CharField(max_length=1024, blank=True, null=True)
+    locale = models.CharField(max_length=1024, blank=True, null=True)
+    organization_id = models.CharField(max_length=1024, blank=True, null=True)
+    role = models.CharField(max_length=1024, blank=True, null=True)
+    verified = models.NullBooleanField()
+    result_type = models.CharField(max_length=1024, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'isv_users'
+
+
+class ZendeskUserInfo(models.Model):
     user = models.CharField(max_length=32)
     pwd = models.CharField(max_length=32)
 
