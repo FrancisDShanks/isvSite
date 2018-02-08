@@ -230,3 +230,13 @@ class ZendeskUserInfo(models.Model):
     class Meta:
         managed = True
         db_table = 'zendesk_userinfo'
+
+
+class DBUpdateTime(models.Model):
+    timestamp = models.CharField(primary_key=True, max_length=32)
+    date = models.CharField(max_length=32)
+    time = models.CharField(max_length=32)
+
+    class Meta:
+        managed = True
+        db_table = 'isv_update'

@@ -1,0 +1,16 @@
+{% extends 'zendesk/base.html' %}
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <p>{{ latest }}</p>
+        {% if search %}
+            <ul>
+            <br/>
+                <h6>Search Result</h6>
+                <a href={% url 'zendesk:post_detail' search.id %}>#{{ search.id }}:{{ search.title }}</a>
+            </ul>
+        {% else %}
+            <p>Ticket Searched Dose Not Exist</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'zendesk/base.html' %}
+{% block title %}Log In{% endblock %}
+
+{% block content %}
     <h1 style="background-color: antiquewhite;color: black">ISV Support</h1>
     <h1>User Input</h1>
     <form action="/index/" method="POST">
@@ -28,6 +25,4 @@
         </tbody>
     </table>
     <script src="/static/js/jquery-1.12.4.js"></script>
-</body>
-
-</html>
+{% endblock %}

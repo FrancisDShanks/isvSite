@@ -15,4 +15,7 @@ urlpatterns = [
     url(r'^OXPw_SaaS/$', views.SaaS.as_view(), name='SaaS'),
     url(r'^OXPd_Pub/$', views.PublicSdk.as_view(), name='Pub'),
     url(r'^post/(?P<p_id>[0-9]+)/$', views.post_detail, name='post_detail'),
+    url(r'^search/$', views.search, name='search'),
+    url(r'^download_posts/$', views.download_posts, name='download_posts'),
+    url(r'^download_comments/$', views.download_comments, name='download_comments'),
 ]

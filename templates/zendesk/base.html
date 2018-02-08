@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="index" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <title>{% block title %}default title{% endblock %}</title>
+</head>
+<body>
+<button type="button" class="btn btn-secondary">
+    <a style="color: antiquewhite" href={% url 'zendesk:index' %}>Main Page</a>
+</button>
+
+
+<br/>
+<div class="jumbotron text-center">
+    <form action="{% url 'zendesk:search'%}" method="get">
+        <input type="search" name="postid"/>
+        <input type="submit" value="Search" />
+    </form>
+</div>
+<hr/>
+{% block content %}
+    <div>default content</div>
+{% endblock %}
+
+
+</body>
+</html>

@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>OXPd .NET/Java</title>
-</head>
-<body>
-    <a href={% url 'zendesk:index' %}>Back to main page</a>
-    <hr />
-    <h1>Latest OXPd JavaScript Posts</h1>
+{% extends 'zendesk/base.html' %}
+{% block title %}OXPd .NET/Java{% endblock %}
 
-    <table border="1">
-        <thead>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Urls</th>
-            <th>Updated At</th>
-        </thead>
-        <tbody>
-            {% for line in data %}
-                <tr>
-                    <td><a href="{% url 'zendesk:post_detail' line.id %}">{{ line.id }}</a></td>
-                    <td>{{ line.title }}</td>
-                    <td><a href={{ line.html_url }}>{{ line.html_url }}</a></td>
-                    <td>{{ line.updated_at_str }}</td>
-                </tr>
-            {%  endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+{% block content %}
+    <h1>Latest OXPd JavaScript Posts</h1>
+    {% include 'zendesk/posts_list.html' %}
+{% endblock %}
